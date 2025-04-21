@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Bookings</h2>
+
+    <form (ngSubmit)="saveBookings()">
+        <input type="number" [(ngModel)]="booking.Id" name="Id" placeholder="ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="booking.Name" name="Name" placeholder="NAME" required />
+        <br/>
+        <input type="text" [(ngModel)]="booking.AlterNativeContactNo" name="AlterNativeContactNo" placeholder="ALTERNATIVE CONTACT NO" required />
+        <br/>
+        <input type="number" [(ngModel)]="booking.AreaId" name="AreaId" placeholder="AREA ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="booking.Booking_date" name="Booking_date" placeholder="BOOKING DATE" required />
+        <br/>
+        <input type="text" [(ngModel)]="booking.BookingProvideDateTime" name="BookingProvideDateTime" placeholder="BOOKING PROVIDE DATE TIME" required />
+        <br/>
+        <input type="number" [(ngModel)]="booking.UserId" name="UserId" placeholder="USER ID" required />
+        <br/>
+        <button type="submit">{{ editing ? 'Update' : 'Add' }} Bookings</button>
+        <br/>
+
+
+    </form>
+
+    <ul>
+        <li *ngFor="let booking of bookings">
+            {{booking.Id}} - {{booking.Name}} - {{booking.AlterNativeContactNo}} - {{booking.AreaId}} - {{booking.Booking_date}} - {{booking.BookingProvideDateTime}} - {{booking.UserId}}
+            <button (click)="editBookings(booking)">Edit</button>
+            <button (click)="deleteBookings(booking._id)">Delete</button>
+        </li>
+    </ul>
+</div>

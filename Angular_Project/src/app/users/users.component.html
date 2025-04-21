@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Users</h2>
+
+    <form (ngSubmit)="saveUser()">
+        <input type="number" [(ngModel)]="user.Id" name="Id" placeholder="ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="user.Email" name="Email" placeholder="EMAIL" required />
+        <br/>
+        <input type="text" [(ngModel)]="user.Password" name="Password" placeholder="PASSWORD" required />
+        <br/>
+        <input type="text" [(ngModel)]="user.IsActive" name="IsActive" placeholder="IS ACTIVE" required />
+        <br/>
+        <input type="text" [(ngModel)]="user.Role_Id" name="Role_Id" placeholder="ROLE ID" required />
+        <br/>
+        <button type="submit">{{ editing ? 'Update' : 'Add' }} User</button>
+        <br/>
+
+
+    </form>
+
+    <ul>
+        <li *ngFor="let user of users">
+            {{ user.Id }} - {{ user.Email }} - {{user.Password}} - {{user.IsActive}} - {{user.Role_Id}}
+            <button (click)="editUser(user)">Edit</button>
+            <button (click)="deleteUser(user._id)">Delete</button>
+        </li>
+    </ul>
+</div>

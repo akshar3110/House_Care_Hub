@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Booking Payment Refunds</h2>
+
+    <form (ngSubmit)="saveBookingPaymentRefunds()">
+        <input type="number" [(ngModel)]="bookingPaymentRefund.Id" name="Id" placeholder="ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="bookingPaymentRefund.InitiateDateTime" name="InitiateDateTime" placeholder="INITIATE DATE TIME" required />
+        <br/>
+        <input type="number" [(ngModel)]="bookingPaymentRefund.BookingPaymentId" name="BookingPaymentId" placeholder="BOOKING PAYMENT ID" required />
+        <br/>
+        <button type="submit">{{ editing ? 'Update' : 'Add' }} Booking Payment Refunds</button>
+        <br/>
+
+
+    </form>
+
+    <ul>
+        <li *ngFor="let bookingPaymentRefund of bookingPaymentRefunds">
+            {{bookingPaymentRefund.Id}} - {{bookingPaymentRefund.InitiateDateTime}} - {{bookingPaymentRefund.BookingPaymentId}}
+            <button (click)="editBookingPaymentRefunds(bookingPaymentRefund)">Edit</button>
+            <button (click)="deleteBookingPaymentRefunds(bookingPaymentRefund._id)">Delete</button>
+        </li>
+    </ul>
+</div>

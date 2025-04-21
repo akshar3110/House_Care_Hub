@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Booking Status Timings</h2>
+
+    <form (ngSubmit)="saveBookingStatusTimings()">
+        <input type="number" [(ngModel)]="bookingStatusTiming.Id" name="Id" placeholder="ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="bookingStatusTiming.BookingId" name="BookingId" placeholder="BOOKING ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="bookingStatusTiming.BookingStatusId" name="BookingStatusId" placeholder="BOOKING STATUS ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="bookingStatusTiming.DateTime" name="DateTime" placeholder="DATE TIME" required />
+        <br/>
+        <input type="text" [(ngModel)]="bookingStatusTiming.Reason" name="Reason" placeholder="REASON" required />
+        <br/>
+        <button type="submit">{{ editing ? 'Update' : 'Add' }} BookingStatusTimings</button>
+        <br/>
+
+
+    </form>
+
+    <ul>
+        <li *ngFor="let bookingStatusTiming of bookingStatusTimings">
+            {{bookingStatusTiming.Id}} - {{bookingStatusTiming.BookingId}} - {{bookingStatusTiming.BookingStatusId}} - {{bookingStatusTiming.DateTime}} - {{bookingStatusTiming.Reason}}
+            <button (click)="editBookingStatusTimings(bookingStatusTiming)">Edit</button>
+            <button (click)="deleteBookingStatusTimings(bookingStatusTiming._id)">Delete</button>
+        </li>
+
+    </ul>
+</div>

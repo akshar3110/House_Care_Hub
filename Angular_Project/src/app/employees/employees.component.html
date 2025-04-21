@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Employees</h2>
+
+    <form (ngSubmit)="saveEmployees()">
+        <input type="number" [(ngModel)]="employee.Id" name="Id" placeholder="ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.Password" name="Password" placeholder="PASSWORD" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.Email" name="Email" placeholder="EMAIL" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.Area" name="Area" placeholder="AREA" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.WorkExperience" name="WorkExperience" placeholder="WORK EXPERIENCE" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.AdharCardNumber" name="AdharCardNumber" placeholder="ADHAR CARD NUMBER" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.AdharCardPhoto" name="AdharCardPhoto" placeholder="ADHAR CARD PHOTO" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.DateOfJoining" name="DateOfJoining" placeholder="DATE OF JOINING" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.DateOfResignation" name="DateOfResignation" placeholder="DATE OF RESIGNATION" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.IsActive" name="IsActive" placeholder="IS ACTIVE" required />
+        <br/>
+        <input type="text" [(ngModel)]="employee.RoleId" name="RoleId" placeholder="ROLE ID" required />
+        <br/>
+        <button type="submit">{{ editing ? 'Update' : 'Add' }} Employee</button>
+        <br/>
+
+
+    </form>
+
+    <ul>
+        <li *ngFor="let employee of employees">
+            {{ employee.Id }} - {{ employee.Password }} - {{employee.Email}} - {{employee.Area}} - {{employee.WorkExperience}} - {{employee.AdharCardNumber}} - {{employee.AdharCardPhoto}} - {{employee.DateOfJoining}} - {{employee.DateOfResignation}} - {{employee.IsActive}}
+            - {{employee.RoleId}}
+            <button (click)="editEmployees(employee)">Edit</button>
+            <button (click)="deleteEmployees(employee._id)">Delete</button>
+        </li>
+    </ul>
+</div>

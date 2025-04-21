@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Booking Payments</h2>
+
+    <form (ngSubmit)="saveBookingPayments()">
+        <input type="number" [(ngModel)]="bookingPayment.Id" name="Id" placeholder="ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="bookingPayment.AttemptedOnDateTime" name="AttemptedOnDateTime" placeholder="ATTEMPTED ON DATE TIME" required />
+        <br/>
+        <input type="text" [(ngModel)]="bookingPayment.PaymentReferenceNumber" name="PaymentReferenceNumber" placeholder="PAYMENT REFERENCE NUMBER" required />
+        <br/>
+        <input type="number" [(ngModel)]="bookingPayment.BookingId" name="BookingId" placeholder="BOOKING ID" required />
+        <br/>
+        <input type="number" [(ngModel)]="bookingPayment.PaymentStatusId" name="PaymentStatusId" placeholder="PAYMENT STATUS ID" required />
+        <br/>
+        <button type="submit">{{ editing ? 'Update' : 'Add' }} Payment Status</button>
+        <br/>
+
+
+    </form>
+
+    <ul>
+        <li *ngFor="let bookingPayment of bookingPayments">
+            {{bookingPayment.Id}} - {{bookingPayment.AttemptedOnDateTime}} - {{bookingPayment.PaymentReferenceNumber}} - {{bookingPayment.BookingId}} - {{bookingPayment.PaymentStatusId}}
+            <button (click)="editBookingPayments(bookingPayment)">Edit</button>
+            <button (click)="deleteBookingPayments(bookingPayment._id)">Delete</button>
+        </li>
+    </ul>
+</div>

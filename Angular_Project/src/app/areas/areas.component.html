@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Areas</h2>
+
+    <form (ngSubmit)="saveAreas()">
+        <input type="number" [(ngModel)]="area.Id" name="Id" placeholder="ID" required />
+        <br/>
+        <input type="text" [(ngModel)]="area.AreaName" name="areaname" placeholder="AREA NAME" required />
+        <br/>
+        <input type="text" [(ngModel)]="area.CityName" name="cityname" placeholder="CITY NAME" required />
+        <br/>
+        <input type="text" [(ngModel)]="area.StateName" name="statename" placeholder="STATE NAME" required />
+        <br/>
+        <input type="text" [(ngModel)]="area.CountryName" name="countryname" placeholder="COUNTRY NAME" required />
+        <br/>
+        <button type="submit">{{ editing ? 'Update' : 'Add' }} Area</button>
+        <br/>
+
+
+    </form>
+
+    <ul>
+        <li *ngFor="let area of areas">
+            {{ area.Id }} - {{ area.AreaName }} - {{area.CityName}} - {{area.StateName}} - {{area.CountryName}}
+            <button (click)="editAreas(area)">Edit</button>
+            <button (click)="deleteAreas(area._id)">Delete</button>
+        </li>
+    </ul>
+</div>
